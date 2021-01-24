@@ -98,7 +98,7 @@ h3,
 h4,
 h5,
 h6 {
-	color: #545454;
+	color: black;
 }
 
 .text_1 {
@@ -126,7 +126,7 @@ h6 {
 	}
 	20%,
 	80% {
-		width: 8.7em;
+		width: 6em;
 	}
 }
 @keyframes caret {
@@ -342,7 +342,6 @@ body {
 /* =================== Header Style Starts Here =================== */
 body {
 	background-color: #f5f5fc;
-	background-image: url(../images/login-bg.jpg) !important;
 }
 
 .login-container {
