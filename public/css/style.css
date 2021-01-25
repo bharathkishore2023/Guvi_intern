@@ -119,6 +119,25 @@ h6 {
 	animation-duration: 1s;
 	animation-timing-function: steps(1, end);
 }
+
+.text_1_login {
+	overflow: hidden;
+	white-space: nowrap;
+	animation: typewriter2;
+	display: inline-block;
+	position: relative;
+	animation-duration: 10s;
+	animation-timing-function: steps(25, end);
+	animation-iteration-count: infinite;
+}
+.text_1_login::after {
+	content: "|";
+	position: absolute;
+	right: 0;
+	animation: caret2 infinite;
+	animation-duration: 1s;
+	animation-timing-function: steps(1, end);
+}
 @keyframes typewriter {
 	0%,
 	100% {
@@ -130,6 +149,25 @@ h6 {
 	}
 }
 @keyframes caret {
+	0%,
+	100% {
+		opacity: 0;
+	}
+	50% {
+		opacity: 1;
+	}
+}
+@keyframes typewriter2 {
+	0%,
+	100% {
+		width: 0;
+	}
+	20%,
+	80% {
+		width: 8.1em;
+	}
+}
+@keyframes caret2 {
 	0%,
 	100% {
 		opacity: 0;

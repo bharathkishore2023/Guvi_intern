@@ -33,6 +33,10 @@
                                     <input type="email" name="email" class="form-control form-control-sm"  autocomplete="username" required>
                                 </div>
                                 <div class="login-row row no-margin">
+                                    <label for="LinkedIn">LinkedIn-URL</label>
+                                    <input type="linkedin" name="linkedin" class="form-control form-control-sm" required>
+                                </div>
+                                <div class="login-row row no-margin">
                                     <label for="Password">Password</label>
                                     <input type="password" name="password" class="form-control form-control-sm" autocomplete="new-password" required>
                                 </div>
@@ -41,11 +45,11 @@
                                     <input type="password" name="cpassword" class="form-control form-control-sm" autocomplete="new-password" required>
                                 </div>
                                 <div class="login-row btnroo row no-margin">
-                                    <button class="btn btn-primary btn-sm" id="submit" value="Send"> Sign In</button>
+                                    <!-- <button class="btn btn-primary btn-sm" id="submit" value="Send"> Sign In</button> -->
                                     <button class="btn btn-success btn-sm"> Create Account</button>
                                 </div>
                                 <div class="login-row donroo row no-margin">
-                                    <p>Already have an account?<a href="">&nbsp;Sign in</a></p>
+                                    <p>Already have an account?<a href="login.php">&nbsp;Sign in</a></p>
                                 </div>
                             </div>
                         </form>
