@@ -14,7 +14,7 @@ $('document').ready(function () {
         messages:
         {
             user_name: "please enter user name",
-            user_email: "please enter a valid user_email address",
+            user_email: "please enter a valid email address",
         },
         submitHandler: submitForm
     });
