@@ -15,6 +15,8 @@
         <?php include './public/css/bootstrap.min.css'; ?><?php include './public/css/style.css'; ?>
     </style>
     <!-- external js -->
+    <script type="text/javascript" src=".public/js/validation.min.js"></script>
+    <script type="text/javascript" src="./scripts/register.js"></script>
 </head>
 
 <body>
@@ -52,7 +54,7 @@
                                     <!-- <button class="btn btn-success btn-sm"> Create Account</button> -->
                                 </div>
                                 <div class="login-row donroo row no-margin">
-                                    <p>Don't have an account?<a href="register.php">&nbsp;Sign up</a></p>
+                                    <p>Already have an account<a href="login.php">&nbsp;Log in</a></p>
                                 </div>
                             </div>
                         </form>
