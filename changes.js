@@ -35,7 +35,7 @@ $('document').ready(function () {
                         $("#btn-submit").html('Create Account');
                     });
                 } else {
-                    $("#btn-submit").html('Signing Up ...');
+                    $("#btn-submit").html('Updating ...');
                     setTimeout('$(".form-signin").fadeOut(500, function(){ $(".register_container").load("profile.php"); }); ', 3000);
                 }
             }

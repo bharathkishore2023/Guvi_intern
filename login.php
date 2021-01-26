@@ -40,7 +40,6 @@ session_start();
                                 </div>
                                 <div class="login-row btnroo row no-margin">
                                     <input type="submit" value="login" name="login" class="form-control form-control-sm">
-                                    <a href="logout.php">logout</button>
                                 </div>
                                 <div class="login-row donroo row no-margin">
                                     <p>Don't have an account?<a href="register.php">&nbsp;Sign up</a></p>

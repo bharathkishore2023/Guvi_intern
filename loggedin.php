@@ -27,8 +27,16 @@ session_start();
     include_once("db_connection.php");
     $sql = "SELECT * FROM users WHERE user_email = '{$_SESSION['email']}'";
     $res = mysqli_query($conn, $sql);
+    $red="";
     while ($row = mysqli_fetch_array($res)) {
-        echo <<< EOF
+        $red  = $row['user_email'];
+    }
+    if($red == $_SESSION['email'])
+    {
+        $sql1 = "SELECT * FROM users WHERE user_email = '{$_SESSION['email']}'";
+        $res1 = mysqli_query($conn, $sql);
+        while ($row = mysqli_fetch_array($res1)) {
+        ?>
         <div class="container-fluid">
         <div class="container">
             <div class="col-xl-10 col-lg-11 mx-auto login-container">
@@ -40,21 +48,21 @@ session_start();
                                 <h5><span class="text_1_login">Welcome Back🖤</span></h5>
                                 <div class="login-row row no-margin">
                                     <label for="username">User Name</label>
-                                    <input type="text" name="user_name" id="user_name" class="form-control form-control-sm" value='{$row['user_name']}'>
+                                    <input type="text" name="user_name" id="user_name" class="form-control form-control-sm" value='<?php echo $row['user_name'] ?>'>
                                 </div>
                                 <div class="login-row row no-margin">
                                     <label for="email">Email Address</label>
-                                    <input type="email" name="email" id="email" class="form-control form-control-sm" value='{$row['user_email']}'>
+                                    <input type="email" name="email" id="email" class="form-control form-control-sm" value='<?php echo $row['user_email'] ?>'>
                                 </div>  
                                 <div class="login-row row no-margin">
                                     <label for="Linkedin">LinkedIn-URL</label>
-                                    <input type="text" name="user_linkedin" id="user_linkedin" class="form-control form-control-sm" value='{$row['user_linkedin']}'>
+                                    <input type="text" name="user_linkedin" id="user_linkedin" class="form-control form-control-sm" value='<?php echo $row['user_linkedin'] ?>'>
                                 </div>
                                 <div class="login-row btnroo row no-margin">
                                     <button class="btn btn-primary btn-sm" name="create_acc" id="btn-submit" value="submit">Update</button>
                                 </div>
                                 <div class="login-row donroo row no-margin">
-                                <button class="btn btn-primary btn-sm"><a href="logout.php">Logout</a></button>
+                                <a href="logout.php">Logout</a>
                                 </div>
                             </div>
                         </form>
@@ -72,9 +80,12 @@ session_start();
             </div>
         </div>
     </div>
-EOF;
-    }
-    ?>
+<?php } ?>
+<?php
+}else{
+    echo"email doesn't exist";
+}
+?>
 </body>
 
 </html>

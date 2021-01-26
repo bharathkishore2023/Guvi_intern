@@ -31,15 +31,15 @@
                                 <h5><span class="text_1_login">Welcome Back🖤</span></h5>
                                 <div class="login-row row no-margin">
                                     <label for="username">User Name</label>
-                                    <input type="text" name="user_name" id="user_name" class="form-control form-control-sm" pattern="^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$">
+                                    <input type="text" name="user_name" id="user_name" class="form-control form-control-sm" >
                                 </div>
                                 <div class="login-row row no-margin">
                                     <label for="email">Email Address</label>
-                                    <input type="email" name="email" id="email" class="form-control form-control-sm" pattern="^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$">
+                                    <input type="email" name="email" id="email" class="form-control form-control-sm" >
                                 </div>  
                                 <div class="login-row row no-margin">
                                     <label for="Linkedin">LinkedIn-URL</label>
-                                    <input type="text" name="user_linkedin" id="user_linkedin" class="form-control form-control-sm" pattern="^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$">
+                                    <input type="text" name="user_linkedin" id="user_linkedin" class="form-control form-control-sm" >
                                 </div>
                                 <div class="login-row row no-margin">
                                     <label for="password">Password</label>
