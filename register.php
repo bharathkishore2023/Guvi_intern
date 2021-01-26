@@ -15,75 +15,68 @@
         <?php include './public/css/bootstrap.min.css'; ?><?php include './public/css/style.css'; ?>
     </style>
     <!-- external js -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script type="text/javascript" src="../public/js/jquery.validate.min.js"></script>
-    <script type="text/javascript" src="./js/register.js"></script>
 </head>
 
 <body>
-<div class="reg-form">
     <div class="container-fluid">
         <div class="container">
             <div class="col-xl-10 col-lg-11 mx-auto login-container">
                 <div class="row">
                     <div class="col-lg-5 col-md-6 no-padding">
-                        <form class="registerform-ajax" action="userreg.php" method="post" id="register-form">
+                    <div class="register_container">
+                        <form id="register-form" class="form-signin" method="POST">
                             <div class="login-box">
-                                <h5><span class="text_1">Welcome🖤</span></h5>
+                                <h5><span class="text_1_login">Welcome Back🖤</span></h5>
                                 <div class="login-row row no-margin">
-                                    <label for="Full Name">Full Name</label>
-                                    <input type="text" class="form-control form-control-sm" name="user_name" id="user_name" />
+                                    <label for="username">User Name</label>
+                                    <input type="text" name="user_name" id="user_name" class="form-control form-control-sm" pattern="^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$">
                                 </div>
                                 <div class="login-row row no-margin">
-                                    <label for="user_email">Email Address</label>
-                                    <input type="email" class="form-control form-control-sm"  name="user_email" id="user_email" />
-                                </div>
+                                    <label for="email">Email Address</label>
+                                    <input type="email" name="email" id="email" class="form-control form-control-sm" pattern="^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$">
+                                </div>  
                                 <div class="login-row row no-margin">
-                                    <label for="LinkedIn">LinkedIn-URL</label>
-                                    <input type="linkedin" class="form-control form-control-sm" name="linkedin"  id="linkedin" />
+                                    <label for="Linkedin">LinkedIn-URL</label>
+                                    <input type="text" name="user_linkedin" id="user_linkedin" class="form-control form-control-sm" pattern="^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$">
                                 </div>
                                 <div class="login-row row no-margin">
                                     <label for="password">Password</label>
-                                    <input type="password" class="form-control form-control-sm" name="password" id="password"/>
+                                    <input type="password" name="user_password" id="user_password" class="form-control form-control-sm"  required>
                                 </div>
                                 <div class="login-row row no-margin">
-                                    <label for="Confirm passowrd">Confirm Password</label>
-                                    <input type="password"  class="form-control form-control-sm" name="cpassword" id="cpassword"/>
+                                    <label for="password">Confirm Password</label>
+                                    <input type="password" name="cpassword" id="cpassword" class="form-control form-control-sm"  required>
                                 </div>
                                 <div class="login-row btnroo row no-margin">
-                                    <button type="submit" class="btn btn-success btn-sm" name="create_acc" id="form_btn_submit">Create Account
-                                    </button>
-                                </div>
-                                </div>
-                                    <div id="error_mess">
+                                    <button class="btn btn-primary btn-sm" name="create_acc" id="btn-submit" value="submit">Sign up</button>
+                                    <!-- <button class="btn btn-success btn-sm"> Create Account</button> -->
                                 </div>
                                 <div class="login-row donroo row no-margin">
-                                    <p>Already have an account?<a href="login.php">&nbsp;Sign in</a></p>
+                                    <p>Don't have an account?<a href="register.php">&nbsp;Sign up</a></p>
+                                </div>
                             </div>
+                        </form>
+                    </div>
                     </div>
                     <div class="col-lg-7 col-md-6 img-box">
-                        <img src="./public/images/signup.svg" alt="">
+                        <img src="../public/images/signup.svg" alt="">
                     </div>
-                    </div>
+                </div>
                 <div class="card  alert-info align-baseline">
                     <div class="card-body">
                         <p>By: <a href="https://saravananvijayamuthu.herokuapp.com/">Saravanan Vijayamuthu</a></p>
                     </div>
                 </div>
-                </div>
             </div>
         </div>
     </div>
-    <?php
-    include("createjson.php");
-    ?>
-
 </body>
-    <!-- external js -->
-    <script type="text/javascript" src="./public/js/jquery.validate.min.js"></script>
-    <script type="text/javascript" src="./Modules/register.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript" src="./public/js/jquery.validate.min.js"></script>
+<script type="text/javascript" src="scripts/register.js"></script>
 <script>
     <?php include './public/js/popper.min.js'; ?>
     <?php include './public/js/bootstrap.min.js'; ?>
 </script>
+
 </html>

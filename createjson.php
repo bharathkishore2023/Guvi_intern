@@ -6,9 +6,9 @@ if (isset($_POST["create_acc"])) {
         $current_data = file_get_contents('profile.json');
         $array_data = json_decode($current_data, true);
         $extra = array(
-            'email'     =>     $_POST["user_email"],
+            'email'     =>     $_POST["email"],
             'username'     =>     $_POST["user_name"],
-            'linkedin'     =>     $_POST["linkedin"]
+            'linkedin'     =>     $_POST["user_linkedin"]
         );
         $array_data[] = $extra;
         $final_data = json_encode($array_data);

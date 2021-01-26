@@ -7,14 +7,14 @@ $('document').ready(function () {
 				required: true,
 				minlength: 3
 			},
-			password: {
+			user_password: {
 				required: true,
 				minlength: 8,
 				maxlength: 15
 			},
 			cpassword: {
 				required: true,
-				equalTo: '#password'
+				equalTo: '#user_password'
 			},
 			user_email: {
 				required: true,
@@ -24,7 +24,7 @@ $('document').ready(function () {
 		messages:
 		{
 			user_name: "please enter user name",
-			password: {
+			user_password: {
 				required: "please provide a password",
 				minlength: "password at least have 8 characters"
 			},
@@ -41,21 +41,21 @@ $('document').ready(function () {
 		var data = $("#register-form").serialize();
 		$.ajax({
 			type: 'POST',
-			url: '/userreg.php',
+			url: 'userreg.php',
 			data: data,
 			beforeSend: function () {
-				$("#error_mess").fadeOut();
+				$("#error").fadeOut();
 				$("#btn-submit").html('<span class="glyphicon glyphicon-transfer"></span> &nbsp; sending ...');
 			},
 			success: function (response) {
 				if (response == 1) {
-					$("#error_mess").fadeIn(1000, function () {
-						$("#error_mess").html('<div class="alert alert-danger"> <span class="glyphicon glyphicon-info-sign"></span> &nbsp; Sorry email already taken !</div>');
+					$("#error").fadeIn(1000, function () {
+						$("#error").html('<div class="alert alert-danger"> <span class="glyphicon glyphicon-info-sign"></span> &nbsp; Sorry email already taken !</div>');
 						$("#btn-submit").html('<span class="glyphicon glyphicon-log-in"></span> &nbsp; Create Account');
 					});
 				} else {
-					$("#btn-submit").html('Signing Up ...');
-					setTimeout('$(".registerform-ajax").fadeOut(500, function(){ $(".reg-form").load("/welcome.php"); }); ', 3000);
+					$("#btn-submit").html(' Signing Up ...');
+					setTimeout('$(".form-signin").fadeOut(500, function(){ $(".register_container").load("welcome.php"); }); ', 3000);
 				}
 			}
 		});
@@ -64,18 +64,18 @@ $('document').ready(function () {
 			url: 'createjson.php',
 			data: data,
 			beforeSend: function () {
-				$("#error_mess").fadeOut();
+				$("#error").fadeOut();
 				$("#btn-submit").html('<span class="glyphicon glyphicon-transfer"></span> &nbsp; sending ...');
 			},
 			success: function (response) {
 				if (response == 1) {
-					$("#error_mess").fadeIn(1000, function () {
-						$("#error_mess").html('<div class="alert alert-danger"> <span class="glyphicon glyphicon-info-sign"></span> &nbsp; Sorry email already taken !</div>');
+					$("#error").fadeIn(1000, function () {
+						$("#error").html('<div class="alert alert-danger"> <span class="glyphicon glyphicon-info-sign"></span> &nbsp; Sorry email already taken !</div>');
 						$("#btn-submit").html('<span class="glyphicon glyphicon-log-in"></span> &nbsp; Create Account');
 					});
 				} else {
 					$("#btn-submit").html('Signing Up ...');
-					setTimeout('$(".registerform-ajax").fadeOut(500, function(){ $(".reg-form").load("/welcome.php"); }); ', 3000);
+					setTimeout('$(".form-signin").fadeOut(500, function(){ $(".register_container").load("welcome.php"); }); ', 3000);
 				}
 			}
 		});
