@@ -119,7 +119,12 @@ h6 {
 	animation-duration: 1s;
 	animation-timing-function: steps(1, end);
 }
-
+.login-box label.error{
+	display: block;
+    margin: 4px;
+	color: red;
+	padding: 5px;
+}
 .text_1_login {
 	overflow: hidden;
 	white-space: nowrap;
@@ -427,7 +432,7 @@ body {
 	-o-transition: all 0.30s ease-in-out;
 	border: 1px solid #dddddd;
 	border-radius: 0px;
-	padding-top: 13px;
+	padding-top: 10px;
 	padding-bottom: 5px;
 	background-color: #fff;
 	font-weight: 600;

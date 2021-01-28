@@ -16,10 +16,13 @@ $('document').ready(function () {
 				required: true,
 				equalTo: '#user_password'
 			},
-			user_email: {
+			email: {
 				required: true,
 				email: true
 			},
+			errorPlacement: function(error, element) {
+				error.appendTo('#err');
+			}
 		},
 		messages:
 		{
@@ -28,7 +31,7 @@ $('document').ready(function () {
 				required: "please provide a password",
 				minlength: "password at least have 8 characters"
 			},
-			user_email: "please enter a valid email address",
+			email: "please enter a valid email address",
 			cpassword: {
 				required: "please retype your password",
 				equalTo: "password doesn't match !"
@@ -50,12 +53,14 @@ $('document').ready(function () {
 			success: function (response) {
 				if (response == 1) {
 					$("#error").fadeIn(1000, function () {
-						$("#error").html('<div class="alert alert-danger"> <span class="glyphicon glyphicon-info-sign"></span> &nbsp; Sorry email already taken !</div>');
-						$("#btn-submit").html('<span class="glyphicon glyphicon-log-in"></span> &nbsp; Create Account');
+						$("#error").html('<div class="alert alert-danger"> email already registered!</div>');
+						$("#btn-submit").html('Create Account');
 					});
-				} else {
+				} else if(response =="registered"){
 					$("#btn-submit").html(' Signing Up ...');
 					setTimeout('$(".form-signin").fadeOut(500, function(){ $(".register_container").load("welcome.php"); }); ', 3000);
+				}else {
+					
 				}
 			}
 		});
@@ -73,9 +78,11 @@ $('document').ready(function () {
 						$("#error").html('<div class="alert alert-danger"> <span class="glyphicon glyphicon-info-sign"></span> &nbsp; Sorry email already taken !</div>');
 						$("#btn-submit").html('<span class="glyphicon glyphicon-log-in"></span> &nbsp; Create Account');
 					});
-				} else {
-					$("#btn-submit").html('Signing Up ...');
+				}else if(response =="registered"){
+					$("#btn-submit").html(' Signing Up ...');
 					setTimeout('$(".form-signin").fadeOut(500, function(){ $(".register_container").load("welcome.php"); }); ', 3000);
+				}else {
+					
 				}
 			}
 		});
