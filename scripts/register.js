@@ -51,14 +51,14 @@ $('document').ready(function () {
 				$("#btn-submit").html('<span class="glyphicon glyphicon-transfer"></span> &nbsp; sending ...');
 			},
 			success: function (response) {
-				if (response == 1) {
-					$("#error").fadeIn(1000, function () {
+				if (response == "registered") {
+					$("#btn-submit").html(' Signing Up ...');
+					setTimeout('$(".form-signin").fadeOut(500, function(){ $(".register_container").load("welcome.php"); }); ', 3000);
+				} else if(response == 1){
+					$("#error").fadeIn(10, function () {
 						$("#error").html('<div class="alert alert-danger"> email already registered!</div>');
 						$("#btn-submit").html('Create Account');
 					});
-				} else if(response =="registered"){
-					$("#btn-submit").html(' Signing Up ...');
-					setTimeout('$(".form-signin").fadeOut(500, function(){ $(".register_container").load("welcome.php"); }); ', 3000);
 				}else {
 					
 				}
@@ -73,14 +73,14 @@ $('document').ready(function () {
 				$("#btn-submit").html('<span class="glyphicon glyphicon-transfer"></span> &nbsp; sending ...');
 			},
 			success: function (response) {
-				if (response == 1) {
-					$("#error").fadeIn(1000, function () {
-						$("#error").html('<div class="alert alert-danger"> <span class="glyphicon glyphicon-info-sign"></span> &nbsp; Sorry email already taken !</div>');
-						$("#btn-submit").html('<span class="glyphicon glyphicon-log-in"></span> &nbsp; Create Account');
-					});
-				}else if(response =="registered"){
+				if (response == "registered") {
 					$("#btn-submit").html(' Signing Up ...');
 					setTimeout('$(".form-signin").fadeOut(500, function(){ $(".register_container").load("welcome.php"); }); ', 3000);
+				} else if(response == 1){
+					$("#error").fadeIn(10, function () {
+						$("#error").html('<div class="alert alert-danger"> email already registered!</div>');
+						$("#btn-submit").html('Create Account');
+					});
 				}else {
 					
 				}
