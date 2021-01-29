@@ -12,6 +12,10 @@ $('document').ready(function () {
 				minlength: 8,
 				maxlength: 15
 			},
+			user_linkedin: {
+				required: true,
+				url: true
+			},
 			cpassword: {
 				required: true,
 				equalTo: '#user_password'
@@ -32,15 +36,15 @@ $('document').ready(function () {
 				minlength: "password at least have 8 characters"
 			},
 			email: "please enter a valid email address",
+			user_linkedin: "please enter a valid url",
 			cpassword: {
 				required: "please retype your password",
 				equalTo: "password doesn't match !"
 			}
 		},
-		submitHandler: submitForm
+		submitHandler: formHandler
 	});
-	/* handle form submit */
-	function submitForm() {
+	function formHandler() {
 		var data = $("#register-form").serialize();
 		$.ajax({
 			type: 'POST',
@@ -48,15 +52,15 @@ $('document').ready(function () {
 			data: data,
 			beforeSend: function () {
 				$("#error").fadeOut();
-				$("#btn-submit").html('<span class="glyphicon glyphicon-transfer"></span> &nbsp; sending ...');
+				$("#btn-submit").html('Sending ...');
 			},
 			success: function (response) {
 				if (response == "registered") {
 					$("#btn-submit").html(' Signing Up ...');
 					setTimeout('$(".form-signin").fadeOut(500, function(){ $(".register_container").load("welcome.php"); }); ', 3000);
-				} else if(response == 1){
-					$("#error").fadeIn(10, function () {
-						$("#error").html('<div class="alert alert-danger"> email already registered!</div>');
+				} else if (response == "fail") {
+					$("#error").fadeIn(1000, function () {
+						$("#error").html('<div class="alert alert-danger" style="text-align: center"> Email already registered!</div>');
 						$("#btn-submit").html('Create Account');
 					});
 				}else {
@@ -76,9 +80,9 @@ $('document').ready(function () {
 				if (response == "registered") {
 					$("#btn-submit").html(' Signing Up ...');
 					setTimeout('$(".form-signin").fadeOut(500, function(){ $(".register_container").load("welcome.php"); }); ', 3000);
-				} else if(response == 1){
-					$("#error").fadeIn(10, function () {
-						$("#error").html('<div class="alert alert-danger"> email already registered!</div>');
+				} else if (response == "fail") {
+					$("#error").fadeIn(1000, function () {
+						$("#error").html('<div class="alert alert-danger" style="text-align: center"> Email already registered!</div>');
 						$("#btn-submit").html('Create Account');
 					});
 				}else {

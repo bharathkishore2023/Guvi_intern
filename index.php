@@ -28,7 +28,7 @@
                         <div class="register_container">
                             <form id="register-form" class="form-signin" method="POST">
                                 <div class="login-box">
-                                    <h5><span class="text_1_login">Welcome Back🖤</span></h5>
+                                    <h5><span class="text_1_login">Welcome Back <img src="./public/images/logo.svg" style="width: 20px;"></span></h5>
                                     <div class="login-row row no-margin">
                                         <label for="username">User Name</label>
                                         <input type="text" name="user_name" id="user_name" class="form-control form-control-sm">
@@ -64,7 +64,7 @@
                         </div>
                     </div>
                     <div class="col-lg-7 col-md-6 img-box">
-                        <img src="../public/images/signup.svg" alt="">
+                        <img src="./public/images/signup.svg" alt="">
                     </div>
                 </div>
                 <div class="card  alert-info align-baseline">
