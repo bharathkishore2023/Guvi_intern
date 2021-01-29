@@ -16,14 +16,10 @@
 <body>
     <div class="container-fluid">
         <div class="container">
-            <div class="col-xl-10 col-lg-11 mx-auto login-container">
                     <div class="login-box">
                         <h5>Thanks for registering please <a href="login.php" style="color: blue; font-size: 25px; font-style: italic;">Login</a></h5>
                     </div>
-                    
-            </div>
         </div>
-        
     </div>
 </body>
 

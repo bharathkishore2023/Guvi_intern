@@ -6,24 +6,19 @@ $('document').ready(function () {
                 required: true,
                 minlength: 3
             },
-            email: {
+            user_email: {
                 required: true,
                 user_email: true
-            },
-            user_linkedin: {
-                required: true,
-                user_linkedin: true
             },
         },
         messages:
         {
             user_name: "please enter user name",
-            email: "please enter a valid email address",
-            user_linkedin: "Please enter a valid URL"
+            user_email: "please enter a valid email address",
         },
-        submitHandler: formHandler
+        submitHandler: submitForm
     });
-    function formHandler() {
+    function submitForm() {
         var data = $("#register-form").serialize();
         $.ajax({
             type: 'POST',
@@ -36,7 +31,7 @@ $('document').ready(function () {
             success: function (response) {
                 if (response == "fail") {
                     $("#error").fadeIn(1000, function () {
-                        $("#error").html('<div class="alert alert-danger"> Email already registered !</div>');
+                        $("#error").html('<div class="alert alert-danger"> Sorry user_email already taken !</div>');
                         $("#btn-submit").html('Create Account');
                     });
                 } else {
