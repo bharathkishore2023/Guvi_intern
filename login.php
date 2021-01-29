@@ -4,15 +4,14 @@ session_start();
 <?php
 include("db_connection.php");
 if (isset($_POST['login'])) {
-    $user_email = $_POST['email'];
-    $user_pass = $_POST['pass'];
-    $check_user = "SELECT * FROM users WHERE user_email='$user_email' AND user_password = '$password'";
-    $run = mysqli_query($conn, $check_user);
-    if (!$run || mysqli_num_rows($run) == 0) {
-        header('Location: loggedin.php');
-        $_SESSION['email'] = $user_email;
+    $user_email = mysqli_real_escape_string($conn, $_POST['email']);
+    $user_password = mysqli_real_escape_string($conn, $_POST['user_password']);
+    $result = mysqli_query($conn, "SELECT * FROM users WHERE user_email = '" . $user_email . "' and user_password = '" . $user_password . "'");
+    if ($row = mysqli_fetch_array($result)) {
+        $_SESSION['email'] = $row['user_email'];
+        header("Location: loggedin.php");
     } else {
-        echo "<script>alert('Email or password is incorrect!')</script>";
+        echo '<div id="error"><div class="alert alert-danger" style="text-align: center">Check your mail and password</div></div>';
     }
 }
 ?>
@@ -48,11 +47,14 @@ if (isset($_POST['login'])) {
                                 </div>
                                 <div class="login-row row no-margin">
                                     <label for="password">Password</label>
-                                    <input type="password" name="pass" id="password" class="form-control form-control-sm">
+                                    <input type="password" name="user_password" id="password" class="form-control form-control-sm">
                                 </div>
                                 <div class="login-row btnroo row no-margin">
                                     <input type="submit" value="login" name="login" class="form-control form-control-sm">
                                 </div>
+                                <div class="login-row row no-margin">
+                                        <div id="error"></div>
+                                    </div>
                                 <div class="login-row donroo row no-margin">
                                     <p>Don't have an account?<a href="index.php">&nbsp;Sign up</a></p>
                                 </div>
@@ -74,4 +76,3 @@ if (isset($_POST['login'])) {
 </body>
 
 </html>
-
