@@ -1,8 +1,9 @@
 <html>
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Sign up</title>
+    <title>Thanks</title>
     <link rel="shortcut icon" href="" type="image/x-icon">
     <link rel="shortcut icon" href="">
     <!-- external css -->
@@ -13,8 +14,17 @@
 </head>
 
 <body>
-<div class="mx-auto" style="width: 550px; padding: 50px">
-	<h1>Thanks for registering you can <a href="login.php" style="color: green">Login now</a></h1>
-	</div>
+    <div class="container-fluid">
+        <div class="container">
+            <div class="col-xl-10 col-lg-11 mx-auto login-container">
+                    <div class="login-box">
+                        <h5>Thanks for registering please <a href="login.php" style="color: blue; font-size: 25px; font-style: italic;">Login</a></h5>
+                    </div>
+                    
+            </div>
+        </div>
+        
+    </div>
 </body>
+
 </html>
