@@ -19,7 +19,7 @@ session_start();
     <!-- external js -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="./public/js/jquery.validate.min.js"></script>
-    <script type="text/javascript" src="changes.js"></script>
+    <script type="text/javascript" src="scripts/changes.js"></script>
 </head>
 
 <body>
@@ -34,6 +34,7 @@ session_start();
             <div class="register_container">
             <form id="register-form" class="form-signin" method="POST">
                 <div class="login-box">
+                <h5><span class="text_p">Profile <img src="./public/images/logo.svg" style="width: 20px;"></span></h5>
                     <div class="login-row row no-margin">
                         <label for="username">User Name</label>
                         <input type="text" name="user_name" id="user_name" class="form-control form-control-sm" value='{$row['user_name']}'>
@@ -41,7 +42,11 @@ session_start();
                     <div class="login-row row no-margin">
                         <label for="email">Email Address</label>
                         <input type="email" name="email" id="email" class="form-control form-control-sm" value='{$row['user_email']}'>
-                    </div>  
+                    </div>
+                    <div class="login-row row no-margin">
+                    <label for="Linkedin">Linkedin-URL</label>
+                    <input type="url" name="user_linkedin" id="user_linkedin" class="form-control form-control-sm" value='{$row['user_linkedin']}'>
+                </div>    
                     <div class="login-row donroo row no-margin">
                     <a href="logout.php">Logout</a>
                     </div>

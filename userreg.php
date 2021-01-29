@@ -13,7 +13,7 @@ if(isset($_POST['create_acc'])) {
 		mysqli_query($conn, $sql) or die("database error:". mysqli_error($conn).$sql);
 		echo "registered";
 	} else {
-		echo "1";
+		echo "fail";
 	}
 }
 ?>

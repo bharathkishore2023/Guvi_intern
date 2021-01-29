@@ -1,13 +1,25 @@
 <?php
 session_start();
 ?>
+<?php
+include("db_connection.php");
+if (isset($_POST['login'])) {
+    $user_email = $_POST['email'];
+    $user_pass = $_POST['pass'];
+    $check_user = "SELECT * FROM users WHERE user_email='$user_email' AND user_password = '$password'";
+    $run = mysqli_query($conn, $check_user);
+    if (!$run || mysqli_num_rows($run) == 0) {
+        header('Location: loggedin.php');
+        $_SESSION['email'] = $user_email;
+    } else {
+        echo "<script>alert('Email or password is incorrect!')</script>";
+    }
+}
+?>
 <!doctype html>
 <html lang="en">
 
 <head>
-    <?php
-    include_once("db_connection.php");
-    ?>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Log in</title>
@@ -29,7 +41,7 @@ session_start();
                     <div class="col-lg-5 col-md-6 no-padding">
                         <form role="form" method="post" action="login.php">
                             <div class="login-box">
-                                <h5><span class="text_1_login">Welcome Back🖤</span></h5>
+                                <h5><span class="text_1_login">Welcome Back <img src="./public/images/logo.svg" style="width: 20px;"></span></h5>
                                 <div class="login-row row no-margin">
                                     <label for="email">Email Address</label>
                                     <input type="email" name="email" id="email" class="form-control form-control-sm">
@@ -63,18 +75,3 @@ session_start();
 
 </html>
 
-<?php
-include("db_connection.php");
-if (isset($_POST['login'])) {
-    $user_email = $_POST['email'];
-    $user_pass = $_POST['pass'];
-    $check_user = "select * from users WHERE user_email='$user_email' AND user_pass='$password'";
-    $run = mysqli_query($conn, $check_user);
-    if (!$run || mysqli_num_rows($run) == 0) {
-        header('Location: loggedin.php');
-        $_SESSION['email'] = $user_email;
-    } else {
-        echo "<script>alert('Email or password is incorrect!')</script>";
-    }
-}
-?>

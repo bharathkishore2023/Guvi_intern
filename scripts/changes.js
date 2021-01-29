@@ -29,7 +29,7 @@ $('document').ready(function () {
                 $("#btn-submit").html('sending ...');
             },
             success: function (response) {
-                if (response == 1) {
+                if (response == "fail") {
                     $("#error").fadeIn(1000, function () {
                         $("#error").html('<div class="alert alert-danger"> Sorry user_email already taken !</div>');
                         $("#btn-submit").html('Create Account');
