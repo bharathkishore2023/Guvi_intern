@@ -22,7 +22,7 @@ $('document').ready(function () {
         var data = $("#register-form").serialize();
         $.ajax({
             type: 'POST',
-            url: 'changes.php',
+            url: 'update.php',
             data: data,
             beforeSend: function () {
                 $("#error").fadeOut();
