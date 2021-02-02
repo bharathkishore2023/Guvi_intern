@@ -1,6 +1,4 @@
-<?php
-session_start();
-?>
+
 <!doctype html>
 <html lang="en">
 
@@ -24,12 +22,8 @@ session_start();
 
 <body>
     <?php
-    include_once("db_connection.php");
-    $sess = $_SESSION['email'];
-    if ($sess != '') {
-        $sql = "SELECT * FROM users WHERE user_email = '{$_SESSION['email']}'";
-        $res = mysqli_query($conn, $sql);
-        while ($row = mysqli_fetch_array($res)) {
+    include_once("profile1.php");
+    {
             echo <<< EOF
             <div class="register_container">
             <form id="register-form" class="form-signin" method="POST">
@@ -37,15 +31,15 @@ session_start();
                 <h5><span class="text_p">Profile <img src="./public/images/logo.svg" style="width: 20px;"></span></h5>
                     <div class="login-row row no-margin">
                         <label for="username">User Name</label>
-                        <input type="text" name="user_name" id="user_name" class="form-control form-control-sm" value='{$row['user_name']}'>
+                        <input type="text" name="user_name" id="user_name" class="form-control form-control-sm" value='$p_name'>
                     </div>
                     <div class="login-row row no-margin">
                         <label for="email">Email Address</label>
-                        <input type="email" name="email" id="email" class="form-control form-control-sm" value='{$row['user_email']}'>
+                        <input type="email" name="email" id="email" class="form-control form-control-sm" value='$p_email'>
                     </div>
                     <div class="login-row row no-margin">
                     <label for="Linkedin">Linkedin-URL</label>
-                    <input type="url" name="user_linkedin" id="user_linkedin" class="form-control form-control-sm" value='{$row['user_linkedin']}'>
+                    <input type="url" name="user_linkedin" id="user_linkedin" class="form-control form-control-sm" value='$p_linkedin'>
                 </div>    
                     <div class="login-row donroo row no-margin">
                     <a href="logout.php">Logout</a>
@@ -56,16 +50,8 @@ session_start();
 
 EOF;
 }
-}else{
-echo <<< EOF
-<h1>please sign in !!!</h1>
-EOF;
-}
 ?>
         
 </body>
-
-
-
 
 </html>
