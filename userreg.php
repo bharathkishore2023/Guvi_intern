@@ -9,8 +9,9 @@ if(isset($_POST['create_acc'])) {
 	$resultset = mysqli_query($conn, $sql) or die("database error:". mysqli_error($conn));
 	$row = mysqli_fetch_assoc($resultset);
 	if(!isset($row['user_email'])){
-		$sql = "INSERT INTO users (`user_name`, `user_email`, `user_linkedin`, `user_password`) VALUES ('".$user_name."','".$user_email."', '".$user_linkedin."', '".$user_password."')";
-		mysqli_query($conn, $sql) or die("database error:". mysqli_error($conn).$sql);
+		$stmt = $conn->prepare("INSERT INTO users (user_name, user_email, user_linkedin, user_password) VALUES (?, ?, ?, ?)");
+		$stmt->bind_param("ssss", $user_name, $user_email, $user_linkedin, $user_password);
+		$stmt->execute();
 		echo "registered";
 	} else {
 		echo "fail";
