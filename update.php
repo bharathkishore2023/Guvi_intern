@@ -8,9 +8,9 @@ if(isset($_POST['create_acc'])) {
 	$resultset = mysqli_query($conn, $sql) or die("database error:". mysqli_error($conn));
 	$row = mysqli_fetch_assoc($resultset);
 	if(!$row['email']){
-		$sql = "UPDATE users SET user_name='$user_name', user_email='$user_email', user_linkedin='$user_linkedin' WHERE user_email='$user_email'";
-		mysqli_query($conn, $sql) or die("database error:". mysqli_error($conn).$sql);
-		echo "registered";
+		$stmt = $conn->prepare("UPDATE users SET user_name=?, user_email=?, user_linkedin=? WHERE user_email='$user_email'");
+		$stmt->bind_param("sss", $user_name, $user_email, $user_linkedin);
+		$stmt->execute();
 	} else {
 		echo "fail";
 	}
