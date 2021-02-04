@@ -1,20 +1,3 @@
-<?php
-session_start();
-?>
-<?php
-include("db_connection.php");
-if (isset($_POST['login'])) {
-    $user_email = mysqli_real_escape_string($conn, $_POST['email']);
-    $user_password = mysqli_real_escape_string($conn, $_POST['user_password']);
-    $result = mysqli_query($conn, "SELECT * FROM users WHERE user_email = '" . $user_email . "' and user_password = '" . $user_password . "'");
-    if ($row = mysqli_fetch_array($result)) {
-        $_SESSION['email'] = $row['user_email'];
-        header("Location: loggedin.php");
-    } else {
-        echo '<div id="error"><div class="alert alert-danger" style="text-align: center">Check your mail and password</div></div>';
-    }
-}
-?>
 <!doctype html>
 <html lang="en">
 
@@ -27,8 +10,8 @@ if (isset($_POST['login'])) {
     <!-- external css -->
     <link rel="stylesheet" href="./public/css/bootstrap.min.css">
     <link rel="stylesheet" href="./public/css/style.css">
-    <script type="text/javascript" src=".public/js/validation.min.js"></script>
-    <script type="text/javascript" src="scripts/register.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="./public/js/validation.min.js"></script>
 </head>
 
 <body>
@@ -38,28 +21,26 @@ if (isset($_POST['login'])) {
             <div class="col-xl-10 col-lg-11 mx-auto login-container">
                 <div class="row">
                     <div class="col-lg-5 col-md-6 no-padding">
-                        <form role="form" method="post" action="login.php">
-                            <div class="login-box">
-                                <h5><span class="text_1_login">Welcome Back <img src="./public/images/logo.svg" style="width: 20px;"></span></h5>
-                                <div class="login-row row no-margin">
-                                    <label for="email">Email Address</label>
-                                    <input type="email" name="email" id="email" class="form-control form-control-sm">
-                                </div>
-                                <div class="login-row row no-margin">
-                                    <label for="password">Password</label>
-                                    <input type="password" name="user_password" id="password" class="form-control form-control-sm">
-                                </div>
-                                <div class="login-row btnroo row no-margin">
-                                    <input type="submit" value="login" name="login" class="form-control form-control-sm">
-                                </div>
-                                <div class="login-row row no-margin">
-                                        <div id="error"></div>
-                                    </div>
-                                <div class="login-row donroo row no-margin">
-                                    <p>Don't have an account?<a href="index.php">&nbsp;Sign up</a></p>
-                                </div>
+                        <div class="login-box">
+                            <h5><span class="text_1_login">Welcome Back <img src="./public/images/logo.svg" style="width: 20px;"></span></h5>
+                            <div class="login-row row no-margin">
+                                <label for="email">Email Address</label>
+                                <input type="email" name="email" id="email" class="form-control form-control-sm">
                             </div>
-                        </form>
+                            <div class="login-row row no-margin">
+                                <label for="password">Password</label>
+                                <input type="password" name="user_password" id="user_password" class="form-control form-control-sm">
+                            </div>
+                            <div class="login-row btnroo row no-margin">
+                                <input type="button" value="login" id="submit" name="submit" class="form-control form-control-sm">
+                            </div>
+                            <div class="login-row row no-margin">
+                                <div id="error"></div>
+                            </div>
+                            <div class="login-row donroo row no-margin">
+                                <p>Don't have an account?<a href="index.php">&nbsp;Sign up</a></p>
+                            </div>
+                        </div>
                     </div>
                     <div class="col-lg-7 col-md-6 img-box">
                         <img src="./public/images/signup.svg" alt="">
@@ -73,6 +54,38 @@ if (isset($_POST['login'])) {
             </div>
         </div>
     </div>
+    <script>
+        $(document).ready(function() {
+            $("#submit").click(function() {
+                var user_email = $("#email").val();
+                var user_password = $("#user_password").val();
+                var dataString = 'user_email1=' + user_email + '&user_password1=' + user_password;
+                if (user_email == '' || user_password == '') {
+                    $("#error").html('<div class="alert alert-danger" style="text-align: center"> Enter your Details!!</div>');
+                } else {
+                    $.ajax({
+                        type: "POST",
+                        url: "processor.php",
+                        data: dataString,
+                        cache: false,
+                        success: function(response) {
+                            if (response == "LoginSuccess") {
+                                $("#submit").html(' Processing ...');
+                                window.location.href = "loggedin.php";
+                            } else if (response == "Fail") {
+                                $("#error").fadeIn(1000, function() {
+                                    $("#error").html('<div class="alert alert-danger" style="text-align: center"> Check your mail and password</div>');
+                                    $("#submit").html('Create Account');
+                                });
+                            }
+                        }
+                    });
+                }
+                return false;
+            });
+        });
+    </script>
+
 </body>
 
 </html>
