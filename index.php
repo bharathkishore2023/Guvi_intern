@@ -15,8 +15,8 @@
         <?php include './public/css/bootstrap.min.css'; ?><?php include './public/css/style.css'; ?>
     </style>
     <!-- external js -->
-    <script type="text/javascript" src=".public/js/validation.min.js"></script>
-    <script type="text/javascript" src="./scripts/register.js"></script>
+    <script type="text/javascript" src="./public/js/validation.min.js"></script>
+    <script type="text/javascript" src="scripts/register.js"></script>
 </head>
 
 <body>
