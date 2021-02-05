@@ -66,7 +66,7 @@ session_start();
                                                 <button class="btn btn-primary btn-sm" name="create_acc" id="btn-submit" value="submit">Update / View profile</button>
                                             </div>
                                             <div class="login-row donroo row no-margin">
-                                                <a class="btn btn-warning btn-sm" href="logout.php" id="Logout" role="button">Logout</a>
+                                                <a class="btn btn-warning btn-sm" href="logout.php" id="Logout" role="button" onclick="localStorage.clear();">Logout</a>
                                             </div>
                                         </div>
                                     </form>

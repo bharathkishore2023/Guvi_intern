@@ -19,7 +19,7 @@ $(document).ready(function () {
 });
 if (localStorage.email) {
     document.getElementById('Welcome').innerHTML += " Logged in as " + localStorage.getItem('email');
-    $('#Logout').append(`<a class="btn btn-warning btn-sm" href="logout.php" role="button">Logout</a>`);
+    $('#Logout').append(`<a class="btn btn-warning btn-sm" href="logout.php" role="button" onclick="localStorage.clear();">Logout</a>`);
 }else {
     document.getElementById('WelcomeN').innerHTML += " Please do Login ";
     $('#Login').append(`<a class="btn btn-primary btn-sm" href="login.php" role="button">Login</a>`);
