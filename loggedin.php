@@ -45,8 +45,8 @@ session_start();
                                     <form id="register-form" class="form-signin" method="POST">
                                         <div class="login-box">
                                             <h5><span class="text_1_login">Welcome Back <img src="./public/images/logo.svg" style="width: 20px;"></span></h5>
-                                                <div class="card border-success mb-3"  style="max-width: 20rem;">
-                                                    <div class="card-body text-center font-weight-bold">
+                                                <div class="card border-dark mb-3"  style="max-width: 20rem;">
+                                                    <div class="card-body text-center text-info font-weight-bold">
                                                         <p class="card-text" id="Welcome"></p>
                                                     </div>
                                                 </div>
