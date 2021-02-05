@@ -48,6 +48,7 @@ session_start();
                                             <div class="card border-dark mb-3" style="max-width: 20rem;">
                                                 <div class="card-body text-center text-info font-weight-normal">
                                                     <p class="card-text" id="Welcome"></p>
+                                                    <p class="card-text" id="WelcomeN"></p>
                                                 </div>
                                             </div>
                                             <div class="login-row row no-margin">
@@ -96,7 +97,7 @@ session_start();
     if (localStorage.email) {
         document.getElementById('Welcome').innerHTML += " Logged in as " + localStorage.getItem('email');
     } else {
-        alert("Sorry, your browser do not support local storage.");
+        document.getElementById('WelcomeN').innerHTML += " Log in Please!!" ;
     }
 </script>
 
