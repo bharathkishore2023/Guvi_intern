@@ -17,7 +17,6 @@ $(document).ready(function() {
                         window.location.href = "loggedin.php";
                     } else if (response == "Fail") {
                         $("#error").fadeIn(1000, function() {
-                            localStorage.clear();
                             $("#error").html('<div class="alert alert-danger" style="text-align: center"> Check your mail and password</div>');
                         });
                     }
