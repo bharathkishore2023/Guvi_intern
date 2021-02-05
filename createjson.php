@@ -1,8 +1,6 @@
 <?php
 $message = '';
-$error = '';
 if (isset($_POST["create_acc"])) {
-    if (file_exists('userdata.json')) {
         $current_data = file_get_contents('profile.json');
         $array_data = json_decode($current_data, true);
         $extra = array(
@@ -15,7 +13,4 @@ if (isset($_POST["create_acc"])) {
         if (file_put_contents('profile.json', $final_data)) {
             $message = "<label class='text-success'>File Appended Success fully</p>";
         }
-    } else {
-        $error = 'JSON File not exits';
-    }
 }
