@@ -7,10 +7,12 @@ session_start();
     if ($sess != '') {
         $sql = "SELECT * FROM users WHERE user_email = '{$_SESSION['email']}'";
         $res = mysqli_query($conn, $sql);
-        while ($row = mysqli_fetch_array($res)) {
-            $p_name = $row['user_name'];
-            $p_email = $row['user_email'];
-            $p_linkedin = $row['user_linkedin'];
+        if(mysqli_num_rows($res) > 0){
+            $result_array = array();
+            while($row = mysqli_fetch_assoc($res)){
+                array_push($result_array, $row);
+            }
         }
+        echo json_encode($result_array);
     }
 ?>

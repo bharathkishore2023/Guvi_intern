@@ -36,7 +36,7 @@ $('document').ready(function () {
                     });
                 } else {
                     $("#btn-submit").html('Updating ...');
-                    setTimeout('$(".form-signin").fadeOut(500, function(){ $(".register_container").load("profile.php"); }); ', 3000);
+                    window.location.href="profile.html";
                 }
             }
         });
