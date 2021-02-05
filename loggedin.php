@@ -66,7 +66,7 @@ session_start();
                                                     <button class="btn btn-primary btn-sm" name="create_acc" id="btn-submit" value="submit">Update / View profile</button>
                                                 </div>
                                                 <div class="login-row donroo row no-margin">
-                                                    <a href="logout.php">Logout</a>
+                                                <a class="btn btn-warning btn-sm" href="logout.php" role="button">Logout</a>
                                                 </div>
                                             </div>
                                     </form>
